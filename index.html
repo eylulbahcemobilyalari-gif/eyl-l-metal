@@ -6,10 +6,9 @@
     <title>Eylül Metal | Mobilya & Yapı Sistemleri</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* TASARIM AYNI KALDI */
         :root {
-            --primary: #1A4D2E; /* Kurumsal Yeşil */
-            --accent: #D4A373;  /* Ahşap/Gold Detay */
+            --primary: #1A4D2E;
+            --accent: #D4A373;
             --bg: #F5F7F5;
             --text: #333;
         }
@@ -31,9 +30,9 @@
 
         /* HERO */
         .hero {
-            height: 400px;
-            /* Arka plana metal/mobilya karışık temsili bir görsel linki koydum */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1950&q=80');
+            height: 450px;
+            /* Arka plan resmi - İlk başta Paris takımı görünsün */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('resimler/paris.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center;
             text-align: center; color: white; padding: 20px;
@@ -41,7 +40,7 @@
         .hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 5px black; }
         .hero p { font-size: 1.2rem; opacity: 0.9; }
 
-        /* KATEGORİ BUTONLARI (Updated) */
+        /* KATEGORİ BUTONLARI */
         .filters { padding: 30px 2%; text-align: center; background: white; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
         .btn {
             padding: 10px 20px; border: 1px solid #ddd; background: white;
@@ -61,7 +60,7 @@
         }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-        .img-wrap { height: 250px; overflow: hidden; position: relative; cursor: pointer; background: #eee; }
+        .img-wrap { height: 260px; overflow: hidden; position: relative; cursor: pointer; background: #eee; }
         .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .card:hover .img-wrap img { transform: scale(1.1); }
         
@@ -107,7 +106,7 @@
 <section class="hero">
     <div>
         <h1>Eylül Metal & Mobilya</h1>
-        <p>Bahçe Mobilyası, Korkuluk Sistemleri ve Ev Dekorasyonu</p>
+        <p>Bahçe, Balkon, Korkuluk ve İç Mekan Çözümleri</p>
     </div>
 </section>
 
@@ -115,9 +114,9 @@
     <button class="btn active" onclick="filter('all')">Tümü</button>
     <button class="btn" onclick="filter('bahce')">Bahçe Mobilya</button>
     <button class="btn" onclick="filter('koltuk')">Koltuk Takımları</button>
-    <button class="btn" onclick="filter('korkuluk')">Korkuluk Sistemleri</button>
+    <button class="btn" onclick="filter('korkuluk')">Korkuluk</button>
     <button class="btn" onclick="filter('masa')">Masa Sandalye</button>
-    <button class="btn" onclick="filter('baza')">Baza</button>
+    <button class="btn" onclick="filter('baza')">Baza & Yatak</button>
     <button class="btn" onclick="filter('dolap')">Gardrop</button>
 </div>
 
@@ -131,28 +130,33 @@
 </div>
 
 <script>
-    // ÜRÜN LİSTESİ - BURAYI DOLDURACAKSIN
-    // cat: 'bahce', 'koltuk', 'korkuluk', 'masa', 'baza', 'dolap' seçeneklerinden biri olmalı.
+    // ÜRÜN LİSTESİ
+    // Resim isimlerinin (paris.jpg vb.) resimler klasöründekiyle aynı olduğundan emin ol!
     
     const products = [
-        // 1. BAHÇE MOBİLYA (Okra Grubu)
-        { cat:'bahce', title:'Paris Bahçe Takımı', code:'OKT-17', img:'resimler/paris.jpg', desc:'Modern bahçe oturma grubu.' },
+        // --- 1. BAHÇE MOBİLYA (Okra) ---
+        { cat:'bahce', title:'Paris Masa Takımı', code:'Okra OKT-17', img:'resimler/paris.jpg', desc:'Modern tasarım, geniş bahçe masası ve sandalyeleri.' },
+        { cat:'bahce', title:'Eyfel Kütük Masa', code:'Okra OKT-21', img:'resimler/eyfel.jpg', desc:'Doğal kütük görünümü, sağlam ayak yapısı.' },
+        { cat:'bahce', title:'Oslo Bar Seti', code:'Okra OKT-22', img:'resimler/oslo.jpg', desc:'Yüksek bar masası ve tabureleri.' },
+        { cat:'bahce', title:'Klasik Bahçe Seti', code:'Okra OKT-01', img:'resimler/klasik.jpg', desc:'Klasik model masa sandalye takımı.' },
+
+        // --- 2. KOLTUK TAKIMLARI (Agah) ---
+        { cat:'koltuk', title:'Bohem Koltuk Takımı', code:'Agah BOHEM', img:'resimler/bohem.jpg', desc:'3+3+1+1 Konforlu oturma grubu.' },
+        { cat:'koltuk', title:'Bohem Berjer', code:'Agah TEKLİ', img:'resimler/tekli.jpg', desc:'Geniş ve rahat tekli koltuk.' },
         
-        // 2. KOLTUK TAKIMLARI (Agah Grubu)
-        { cat:'koltuk', title:'Bohem Koltuk Takımı', code:'Agah BOHEM', img:'resimler/bohem.jpg', desc:'3+3+1+1 Konforlu salon takımı.' },
-        
-        // 3. KORKULUK SİSTEMLERİ (Yeni)
-        { cat:'korkuluk', title:'Alüminyum Balkon Korkuluğu', code:'KRL-01', img:'resimler/korkuluk1.jpg', desc:'Paslanmaz kare profil korkuluk sistemi.' },
-        { cat:'korkuluk', title:'Camlı Merdiven Korkuluğu', code:'KRL-02', img:'resimler/korkuluk2.jpg', desc:'Temperli cam ve metal tutamak.' },
+        // --- 3. KORKULUK SİSTEMLERİ ---
+        { cat:'korkuluk', title:'Alüminyum Korkuluk', code:'KRL-01', img:'resimler/korkuluk1.jpg', desc:'Balkon ve merdivenler için kare profil sistem.' },
+        { cat:'korkuluk', title:'Camlı Korkuluk', code:'KRL-02', img:'resimler/korkuluk2.jpg', desc:'Modern camlı, paslanmaz korkuluk sistemi.' },
 
-        // 4. MASA SANDALYE
-        { cat:'masa', title:'Mutfak Masa Seti', code:'MS-01', img:'resimler/masa1.jpg', desc:'Açılır masa ve 4 sandalye.' },
+        // --- 4. MASA SANDALYE ---
+        { cat:'masa', title:'Mutfak Masa Seti', code:'MS-01', img:'resimler/masa1.jpg', desc:'Mutfak ve balkon için masa sandalye takımı.' },
 
-        // 5. BAZA
-        { cat:'baza', title:'Çift Kişilik Baza Başlık', code:'BZ-01', img:'resimler/baza1.jpg', desc:'Geniş sandıklı, deri başlıklı baza.' },
+        // --- 5. BAZA & YATAK ---
+        { cat:'baza', title:'Baza Başlık Seti', code:'BZ-01', img:'resimler/baza1.jpg', desc:'Sandıklı baza ve şık başlık.' },
+        { cat:'baza', title:'Plus Yatak', code:'Agah PLUS', img:'resimler/plus.jpg', desc:'Tam ortopedik destek süngerli yatak.' },
 
-        // 6. GARDROP MODELLERİ
-        { cat:'dolap', title:'Sürgülü Gardrop', code:'GD-01', img:'resimler/dolap1.jpg', desc:'Aynalı sürgü kapak, geniş iç hacim.' }
+        // --- 6. GARDROP ---
+        { cat:'dolap', title:'Sürgülü Gardrop', code:'GD-01', img:'resimler/dolap1.jpg', desc:'Aynalı, sürgülü kapak, geniş hacimli dolap.' }
     ];
 
     const gallery = document.getElementById('gallery');
@@ -165,31 +169,27 @@
         const filtered = key === 'all' ? products : products.filter(p => p.cat === key);
 
         if(filtered.length === 0) {
-            gallery.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:20px;">Bu kategoride henüz ürün eklenmedi.</p>';
+            gallery.innerHTML = '<p style="grid-column:1/-1; text-align:center; padding:20px; color:#666;">Bu kategoride henüz ürün fotoğrafı eklenmedi.</p>';
             return;
         }
 
         filtered.forEach(p => {
-            // Kategori adını düzgün yazdırma
-            let catName = p.cat;
-            if(p.cat === 'bahce') catName = 'BAHÇE';
-            if(p.cat === 'koltuk') catName = 'KOLTUK';
-            if(p.cat === 'korkuluk') catName = 'KORKULUK';
-            if(p.cat === 'masa') catName = 'MASA';
-            if(p.cat === 'baza') catName = 'BAZA';
-            if(p.cat === 'dolap') catName = 'DOLAP';
-
+            let catName = p.cat.toUpperCase();
+            // Kategori ismini güzelleştirme
+            if(p.cat==='bahce') catName='BAHÇE';
+            if(p.cat==='koltuk') catName='KOLTUK';
+            
             gallery.innerHTML += `
             <div class="card">
                 <div class="img-wrap" onclick="showLb('${p.img}')">
                     <span class="badge">${catName}</span>
-                    <img src="${p.img}" onerror="this.src='https://via.placeholder.com/400x300?text=RESİM+YOK'">
+                    <img src="${p.img}" onerror="this.src='https://via.placeholder.com/400x300?text=FOTOĞRAF+YOK'">
                 </div>
                 <div class="info">
                     <h3 class="title">${p.title}</h3>
                     <p class="desc">${p.desc}</p>
                     <div class="code"><i class="fas fa-barcode"></i> ${p.code}</div>
-                    <a href="https://wa.me/905555555555?text=Merhaba, ${p.title} (${p.code}) hakkında fiyat alabilir miyim?" target="_blank" class="whatsapp-card">
+                    <a href="https://wa.me/905555555555?text=Merhaba, ${p.title} (${p.code}) fiyatı nedir?" target="_blank" class="whatsapp-card">
                         <i class="fab fa-whatsapp"></i> Fiyat Sor
                     </a>
                 </div>
@@ -202,7 +202,7 @@
         document.getElementById('lb-img').src = src;
     }
 
-    // Başlangıçta tümünü göster
+    // Başlangıç
     document.querySelector('.filters button').click(); 
 </script>
 
